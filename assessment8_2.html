@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All JavaScript String Methods</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    h1, h2 { color: #333; }
+    pre { background: #eee; padding: 10px; border-left: 5px solid #007BFF; }
+  </style>
+</head>
+<body>
+
+<h1>JavaScript String Methods Examples</h1>
+<div id="output"></div>
+
+<script>
+  const log = (title, result) => {
+    document.getElementById("output").innerHTML += 
+      `<h2>${title}</h2><pre>${JSON.stringify(result, null, 2)}</pre>`;
+  };
+
+  const str = "  Hello, JavaScript World!  ";
+  const email = "user@example.com";
+  const csv = "red,green,blue,yellow";
+  const multiLine = "Line1\nLine2\nLine3";
+  const padded = "5";
+
+  // === Basic Methods ===
+  log("length", str.length);
+  log("charAt", str.charAt(7));
+  log("charCodeAt", str.charCodeAt(7));
+  log("at", str.at(-1));
+
+  // === Searching ===
+  log("indexOf", str.indexOf("JavaScript"));
+  log("lastIndexOf", str.lastIndexOf("o"));
+  log("includes", str.includes("World"));
+  log("startsWith", str.trim().startsWith("Hello"));
+  log("endsWith", str.trim().endsWith("World!"));
+
+  // === Slicing and Substrings ===
+  log("slice", str.slice(2, 9));
+  log("substring", str.substring(2, 9));
+  log("substr (deprecated)", str.substr(2, 7));
+
+  // === Case Conversion ===
+  log("toUpperCase", str.toUpperCase());
+  log("toLowerCase", str.toLowerCase());
+  log("toLocaleUpperCase", str.toLocaleUpperCase());
+  log("toLocaleLowerCase", str.toLocaleLowerCase());
+
+  // === Trimming ===
+  log("trim", str.trim());
+  log("trimStart", str.trimStart());
+  log("trimEnd", str.trimEnd());
+
+  // === Replacing ===
+  log("replace", str.replace("JavaScript", "JS"));
+  log("replaceAll", str.replaceAll(" ", "_"));
+
+  // === Splitting ===
+  log("split (comma)", csv.split(","));
+  log("split (space)", str.trim().split(" "));
+
+  // === Repeating and Padding ===
+  log("repeat", "JS".repeat(3));
+  log("padStart", padded.padStart(4, "0"));
+  log("padEnd", padded.padEnd(4, "*"));
+
+  // === Comparison ===
+  log("localeCompare", "apple".localeCompare("banana"));
+
+  // === Matching and Searching with Regex ===
+  log("match", email.match(/\w+@\w+\.\w+/));
+  log("matchAll", [...email.matchAll(/\w+/g)]);
+  log("search", email.search(/@/));
+  log("replace (regex)", email.replace(/@\w+\./, "@test."));
+
+  // === Other Utilities ===
+  log("concat", "Hello".concat(", ", "World!"));
+  log("normalize", "\u0041\u030A".normalize("NFC")); // Å
+  log("valueOf", str.valueOf());
+  log("toString", str.toString());
+  log("codePointAt", str.codePointAt(2));
+  log("fromCharCode", String.fromCharCode(72, 73));  // "HI"
+  log("fromCodePoint", String.fromCodePoint(9731));  // "☃"
+
+</script>
+
+</body>
+</html>
